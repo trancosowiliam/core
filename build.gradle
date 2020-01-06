@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+def ext = rootProject.ext
+
+android {
+    compileSdkVersion ext.tools.compileSdkVersion
+    defaultConfig {
+        minSdkVersion ext.tools.minSdkVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation ext.androidx
+    implementation ext.kotlin
+    testImplementation ext.test
+}
+repositories {
+    mavenCentral()
+}
